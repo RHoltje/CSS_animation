@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <style>
+	
+	body{
+		background-color: black;
+	}
+	
+      .path {
+        position: relative;
+        width: 80%;
+        height: 100px;
+        background: rgb(11, 53, 223);
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .path::after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-top: 12px dotted rgb(230, 223, 28);
+        width: 90%;
+        top: 50%;
+        left: 5%;
+		margin-top: -6px;
+      }
+	  .pacman {
+		  position: absolute;
+		  z-index: 99;
+		  top: 50%;
+		  left: -20%;
+		  animation: moveForward 5s linear infinite;
+		  animation-delay: 8s;
+	  }
+
+	  .pacman::before, .pacman::after {
+		  content: "";
+		  display: block;
+		  height: 0;
+		  width: 0;
+		  position: absolute;
+		  border: solid 30px rgb(227, 18, 39);
+		  margin-top: -30px;
+		  border-radius: 50%;
+		  border-right-color: transparent;
+		  border-bottom-color:transparent;
+		  animation: mouthTop 0.7s ease infinite;
+	  }
+
+	  
+
+	  .pacman::after {
+		  border-color:rgb(227, 18, 39);
+		  border-right-color: transparent;
+		  border-top-color: transparent;
+		  animation: mouthBottom 0.7s ease infinite;
+	  }
+
+	  @keyframes moveForward {
+		  0% {
+			  left: -20%;
+		  }
+		  100% {
+			  left: 100%;
+		  }
+	  }
+
+	  @keyframes mouthTop {
+		  50% {
+			  transform: rotate(44deg);
+		  }
+	  }
+
+	  @keyframes mouthBottom {
+		  50% {
+			  transform: rotate(-44deg);
+		  }
+	  }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pacman in CSS</h1>
+
+    <div class="path">
+      <div class="pacman"></div>
+      <div class="ghost">
+        <div class="eyes"></div>
+        <div class="skirt"></div>
+      </div>
+    </div>
+  </body>
+</html>
